@@ -1,0 +1,17 @@
+{
+  "name": "tripventure-miniprogram",
+  "version": "1.0.0",
+  "description": "TripVenture 旅游应用 - 基于 uni-app + Vue2",
+  "main": "main.js",
+  "scripts": {
+    "dev:mp-weixin": "uni-app-cli dev mp-weixin",
+    "build:mp-weixin": "uni-app-cli build mp-weixin"
+  },
+  "dependencies": {
+    "vue": "^2.6.14",
+    "uni-app": "^2.0.0"
+  },
+  "devDependencies": {
+    "@dcloudio/uni-app-cli": "^2.0.0"
+  }
+}

@@ -1,0 +1,269 @@
+<!-- pages/index/index.wxml -->
+<view class="page-container">
+  <!-- 导航栏 -->
+  <view class="navbar">
+    <view class="navbar-content">
+      <view class="navbar-logo">
+        <text class="navbar-logo-text">TripVenture</text>
+      </view>
+      <view class="navbar-actions">
+        <button class="navbar-action-btn" plain>
+          <text class="icon">🔍</text>
+        </button>
+        <button class="navbar-action-btn" plain>
+          <text class="icon">🛒</text>
+        </button>
+        <button class="navbar-signin-btn" type="primary" size="small">Sign In</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 英雄区域 -->
+  <view class="hero-section">
+    <image class="hero-bg" src="/images/hero.jpg" mode="aspectFill"></image>
+    <view class="hero-overlay"></view>
+    <view class="hero-content">
+      <view class="hero-text">
+        <text class="hero-title">Best Escape Choice</text>
+        <text class="hero-subtitle">Explore thousands of incredible places. Where every journey becomes an unforgettable memory.</text>
+      </view>
+      
+      <!-- 搜索表单 -->
+      <view class="search-form">
+        <view class="search-form-tabs">
+          <button 
+            class="{{activeTab === 'flight' ? 'search-form-tab search-form-tab-active' : 'search-form-tab'}}" 
+            bindtap="switchTab"
+            data-tab="flight"
+            plain
+          >
+            Flight
+          </button>
+          <button 
+            class="{{activeTab === 'hotel' ? 'search-form-tab search-form-tab-active' : 'search-form-tab'}}" 
+            bindtap="switchTab"
+            data-tab="hotel"
+            plain
+          >
+            Hotel
+          </button>
+        </view>
+        
+        <view class="search-form-fields">
+          <view class="search-form-field">
+            <text class="search-form-label">From</text>
+            <input 
+              class="search-form-input" 
+              value="{{formData.from}}" 
+              bindinput="bindFromInput"
+              placeholder="City or Airport"
+            ></input>
+            <text class="search-form-input-hint">CGK, South Jakarta, Indonesia</text>
+          </view>
+          
+          <view class="search-form-field">
+            <text class="search-form-label">To</text>
+            <input 
+              class="search-form-input" 
+              value="{{formData.to}}" 
+              bindinput="bindToInput"
+              placeholder="City or Airport"
+            ></input>
+            <text class="search-form-input-hint">Noi Bai International Airport</text>
+          </view>
+          
+          <view class="search-form-field">
+            <text class="search-form-label">Date</text>
+            <input 
+              class="search-form-input" 
+              value="{{formData.date}}" 
+              bindinput="bindDateInput"
+              placeholder="Select Date"
+            ></input>
+          </view>
+          
+          <view class="search-form-field">
+            <text class="search-form-label">Passengers</text>
+            <input 
+              class="search-form-input" 
+              value="{{formData.passengers}}" 
+              bindinput="bindPassengersInput"
+              placeholder="Number of Passengers"
+            ></input>
+          </view>
+        </view>
+        
+        <button class="search-form-btn" type="primary" bindtap="search">
+          <text>Search Flight</text>
+          <text class="icon">→</text>
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务卡片 -->
+  <view class="services-section">
+    <view class="services-content">
+      <view class="services-grid">
+        <!-- 服务卡片 1 -->
+        <view class="service-card">
+          <image class="service-card-img" src="/images/service1.jpg" mode="aspectFill"></image>
+          <view class="service-card-body">
+            <view class="service-card-icon">
+              <text class="icon">👤</text>
+            </view>
+            <text class="service-card-title">View Traveller Profile</text>
+          </view>
+        </view>
+        
+        <!-- 服务卡片 2 -->
+        <view class="service-card service-card-orange">
+          <image class="service-card-img" src="/images/service2.jpg" mode="aspectFill"></image>
+          <view class="service-card-body">
+            <view class="service-card-icon">
+              <text class="icon">📅</text>
+            </view>
+            <text class="service-card-title">RSVP To Trips</text>
+            <text class="service-card-desc">Experience the best in travel. A journey beyond your imagination.</text>
+          </view>
+        </view>
+        
+        <!-- 服务卡片 3 -->
+        <view class="service-card">
+          <image class="service-card-img" src="/images/service3.jpg" mode="aspectFill"></image>
+          <view class="service-card-body">
+            <view class="service-card-icon">
+              <text class="icon">💬</text>
+            </view>
+            <text class="service-card-title">Join Your Host's Chat</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Expand Your Network -->
+  <view class="network-section">
+    <view class="network-content">
+      <view class="network-left">
+        <text class="network-title">Expand Your Network</text>
+        <text class="network-subtitle">Experience the best in travel. A journey beyond your imagination.</text>
+        
+        <view class="network-features">
+          <view class="network-feature">
+            <view class="network-feature-icon">
+              <text class="icon">✓</text>
+            </view>
+            <view class="network-feature-content">
+              <text class="network-feature-title">Earn 2x points on TripVenture app</text>
+              <text class="network-feature-desc">Book now and earn double points</text>
+            </view>
+          </view>
+          
+          <view class="network-feature">
+            <view class="network-feature-icon">
+              <text class="icon">✓</text>
+            </view>
+            <view class="network-feature-content">
+              <text class="network-feature-title">Get insider Prices Only for you</text>
+              <text class="network-feature-desc">Unlock special prices with your member price</text>
+            </view>
+          </view>
+          
+          <view class="network-feature">
+            <view class="network-feature-icon">
+              <text class="icon">✓</text>
+            </view>
+            <view class="network-feature-content">
+              <text class="network-feature-title">12k+</text>
+              <text class="network-feature-desc">Unlock experiences</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <view class="network-right">
+        <view class="app-container">
+          <image class="app-image" src="/images/app.jpg" mode="aspectFill"></image>
+        </view>
+        <view class="qrcode-container">
+          <text class="qrcode-title">Scan Now</text>
+          <view class="qrcode-placeholder">
+            <text class="qrcode-placeholder-text">QR Code</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 统计数据 -->
+  <view class="stats-section">
+    <view class="stats-content">
+      <view class="stats-grid">
+        <view class="stats-item">
+          <text class="stats-number">73K+</text>
+          <text class="stats-desc">Join the millions who trust us for their travel. Over 73K+ bookings successfully handled.</text>
+        </view>
+        
+        <view class="stats-item">
+          <text class="stats-number">99%</text>
+          <text class="stats-desc">Our customers rate us with 99% satisfaction, we take pride in providing exceptional service.</text>
+        </view>
+        
+        <view class="stats-item">
+          <text class="stats-number">1200</text>
+          <text class="stats-desc">Explore the world with 1200+ partner hotels, giving you a wide range of options.</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 页脚 -->
+  <view class="footer">
+    <view class="footer-content">
+      <view class="footer-grid">
+        <view class="footer-column">
+          <text class="footer-column-title">TripVenture</text>
+          <text class="footer-column-desc">Your ultimate travel companion. Explore the world with ease.</text>
+        </view>
+        
+        <view class="footer-column">
+          <text class="footer-column-title">Quick Links</text>
+          <view class="footer-links">
+            <navigator url="#" class="footer-link">Home</navigator>
+            <navigator url="#" class="footer-link">About Us</navigator>
+            <navigator url="#" class="footer-link">Services</navigator>
+            <navigator url="#" class="footer-link">Blog</navigator>
+          </view>
+        </view>
+        
+        <view class="footer-column">
+          <text class="footer-column-title">Contact</text>
+          <view class="footer-contact">
+            <text class="footer-contact-item">Email: info@tripventure.com</text>
+            <text class="footer-contact-item">Phone: +1 (555) 123-4567</text>
+          </view>
+        </view>
+        
+        <view class="footer-column">
+          <text class="footer-column-title">Follow Us</text>
+          <view class="footer-social">
+            <view class="footer-social-icon">
+              <text class="icon">📱</text>
+            </view>
+            <view class="footer-social-icon">
+              <text class="icon">📧</text>
+            </view>
+            <view class="footer-social-icon">
+              <text class="icon">❤️</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <view class="footer-bottom">
+        <text class="footer-bottom-text">© 2024 TripVenture. All rights reserved.</text>
+      </view>
+    </view>
+  </view>
+</view>

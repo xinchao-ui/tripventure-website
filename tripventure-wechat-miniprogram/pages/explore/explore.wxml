@@ -1,0 +1,16 @@
+<view class="explore-container">
+  <view class="explore-header">
+    <text class="explore-title">探索目的地</text>
+    <text class="explore-subtitle">发现世界各地的精彩</text>
+  </view>
+  
+  <view class="destination-list">
+    <view class="destination-card" wx:for="{{destinations}}" wx:key="{{index}}">
+      <image class="destination-image" src="{{item.image}}" mode="aspectFill"></image>
+      <view class="destination-info">
+        <text class="destination-name">{{item.name}}</text>
+        <text class="destination-price">{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+</view>
